@@ -10,7 +10,7 @@ public class Hand {
 		int count2 = 0;
 		boolean usedEleven = false;
 		for(CardB y: list) {
-			if(y.pointValue() == 1 && !usedEleven) {  // Checks for Ace and if the 11 is needed
+			if(y.pointValue() == 1 && !usedEleven) {
 				count2 = count2 + 11;
 				usedEleven = true;
 			}

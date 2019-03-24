@@ -38,9 +38,9 @@ public class Blackjack
 			endProgram();
 		}
 
-		ArrayList<CardB> dealerCards = new ArrayList<CardB>();   // make array to hold dealers cards
-		ArrayList<CardB> playerCards = new ArrayList<CardB>();   // players cards
-		dealerCards.add(DeckB.pickCard());                                                                  //Starts dealers first pick
+		ArrayList<CardB> dealerCards = new ArrayList<CardB>();
+		ArrayList<CardB> playerCards = new ArrayList<CardB>();
+		dealerCards.add(DeckB.pickCard());                                                                  
 		System.out.println("The dealer draws the " + dealerCards.get(0).toString());
 		int[] dealerHandVal = Hand.getValues(dealerCards);
 		dealerMinValue = dealerHandVal[0];
@@ -48,7 +48,7 @@ public class Blackjack
 		if(dealerMinValue == dealerMaxValue)
 			System.out.println("The dealer has " + dealerMinValue);
 		else
-			System.out.println("The dealer has " + dealerMinValue + " or " + dealerMaxValue + " due to Ace.");         //End dealers first picks
+			System.out.println("The dealer has " + dealerMinValue + " or " + dealerMaxValue + " due to Ace.");        
 
 		boolean roundOver = false;
 		boolean playerTurnOver = false;
@@ -112,7 +112,7 @@ public class Blackjack
 
 				}
 			}
-			if(position.equalsIgnoreCase("2")) { //Stand
+			if(position.equalsIgnoreCase("2")) { 
 				System.out.println("You stand.");
 				playerTurnOver = true;
 			}
