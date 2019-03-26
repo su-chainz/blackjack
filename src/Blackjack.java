@@ -1,15 +1,21 @@
 import java.util.ArrayList;
+import java.util.Scanner;
 
 
 public class Blackjack
 {
 	ArrayList<CardB> cards = new ArrayList<CardB>();
 	int games = 0;
-	String name = "Suchetan";
-	String balance = "1000";
+	String name;
+	String balance;
+	Scanner in = new Scanner(System.in);
 
 	public void playGame() {
 		DeckB.setCards();
+		System.out.println("What is your name?");
+		name = in.nextLine();
+		System.out.println("How many chips would you like to put in?");
+		balance = in.nextLine();
 		while(true)
 			startRound();
 	}
@@ -20,22 +26,22 @@ public class Blackjack
 		int playerMaxValue = 0;
 		
 		
-		System.out.println(name + "'s balance: " + balance);	
+		System.out.println(name + "'s balance: " + balance + " chip(s)");	
 		System.out.println("How much money would you like to bet? (Q to cash out)");
 		
 		String bet = Input.getInput();
-		while (Integer.parseInt(bet) > Integer.parseInt(balance)) {
-			System.out.println("Can't bet more than you have!");
-			System.out.println("How much money would you like to bet? (Q to cash out)");
-			bet = Input.getInput();
+		if(bet.equals("Q")) {
+			endProgram();
 		}
 		while (isNumeric(bet) == false) {
 			System.out.println("Must be a number!");
 			System.out.println("How much money would you like to bet? (Q to cash out)");
 			bet = Input.getInput();
 		}
-		if(bet.equals("Q")) {
-			endProgram();
+		while (Integer.parseInt(bet) > Integer.parseInt(balance)) {
+			System.out.println("Can't bet more than you have!");
+			System.out.println("How much money would you like to bet? (Q to cash out)");
+			bet = Input.getInput();
 		}
 
 		ArrayList<CardB> dealerCards = new ArrayList<CardB>();
